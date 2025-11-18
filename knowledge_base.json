@@ -1,17 +1,16 @@
 {
-    "policy_types": {
-      "term_life": "Term life insurance provides coverage for a specific period of time. It typically has lower premiums and no cash value.",
-      "whole_life": "Whole life insurance provides lifelong coverage and includes a cash value component that grows over time."
-    },
-    "claims": {
-      "how_to_file": "To file a claim, contact the insurer with the policy number and death certificate, and follow the insurer's claim submission process.",
-      "required_docs": "Common documents include the policy number, claimant ID, death certificate, and completed claim form."
-    },
-    "eligibility": {
-      "general": "Eligibility depends on age, health, and underwriting rules. Many insurers require medical questionnaires or exams."
-    },
-    "benefits": {
-      "general": "Benefits often include a lump-sum death benefit, potential riders for accelerated benefits, and optional riders for critical illness."
-    }
+  "policy_types": {
+    "term_life": "Term life insurance provides coverage for a specific period of time. It typically has lower premiums and no cash value.",
+    "whole_life": "Whole life insurance provides lifelong coverage and includes a cash value component that grows over time."
+  },
+  "claims": {
+    "how_to_file": "To file a claim, contact the insurer with the policy number and death certificate, and follow the insurer's claim submission process.",
+    "required_docs": "Common documents include the policy number, claimant ID, death certificate, and completed claim form."
+  },
+  "eligibility": {
+    "general": "Eligibility depends on age, health, and underwriting rules. Many insurers require medical questionnaires or exams."
+  },
+  "benefits": {
+    "general": "Benefits often include a lump-sum death benefit, potential riders for accelerated benefits, and optional riders for critical illness."
   }
-  
+}

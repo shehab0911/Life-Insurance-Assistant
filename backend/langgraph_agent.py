@@ -1,4 +1,4 @@
-# backend/langgraph_agent.py
+
 import os
 import json
 from typing import Annotated, Dict, Any, List
@@ -40,21 +40,21 @@ def query_kb(query: str) -> str:
     if "benefit" in q: out.append(KB.get("benefits", {}).get("general", ""))
     return " ".join([s for s in out if s])
 
-# --- 🏎️ SPEED CONFIGURATION ---
+
 
 llm = ChatOpenAI(
     model="gpt-4o-mini", 
     temperature=0.0, 
-    # We give it 150 space so it never cuts off mid-sentence...
+    
     max_tokens=150,
     api_key=OPENAI_API_KEY
 )
 
-# ...But we ORDER it to only use about 30-50 tokens.
+
 SYSTEM_PROMPT = (
     "You are a lightning-fast life insurance assistant. "
-    "Answer in exactly 1 or 2 short sentences. "  # <--- FORCES SPEED (0.5s generation)
-    "Do not use lists or bullet points. "         # <--- PREVENTS LONG ANSWERS
+    "Answer in exactly 1 or 2 short sentences. "  
+    "Do not use lists or bullet points. "         
     "Be direct and conversational."
 )
 
