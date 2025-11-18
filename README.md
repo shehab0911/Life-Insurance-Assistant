@@ -190,6 +190,12 @@ Response Stream
 
 ---
 
+### Voice CLI UI
+
+Here’s a sample interaction with the Life Insurance Support Agent:
+
+![Life Insurance Voice Agent UI](voice_cli.png)
+
 ---
 
 ## ⚡ Latency Optimization
