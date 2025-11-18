@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Insurance Voice Agent</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        font-family: system-ui, -apple-system, Roboto, Arial;
+        background: #f7f8fb;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      .card {
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(30, 30, 60, 0.08);
+        width: 420px;
+        text-align: center;
+      }
+      .mic {
+        width: 120px;
+        height: 120px;
+        border-radius: 60px;
+        background: linear-gradient(135deg, #ff6b6b, #ffb86b);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        user-select: none;
+      }
+      .status {
+        margin-top: 12px;
+        font-size: 14px;
+        color: #333;
+      }
+      .small {
+        font-size: 12px;
+        color: #666;
+        margin-top: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h3>Insurance Voice Assistant</h3>
+      <div id="mic" class="mic">🎤</div>
+      <div id="status" class="status">
+        Click mic and ask your question — only voice responses.
+      </div>
+      <div id="transcript" class="small"></div>
+      <div class="small" style="margin-top: 8px">
+        Policy sample KB loaded on server.
+      </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

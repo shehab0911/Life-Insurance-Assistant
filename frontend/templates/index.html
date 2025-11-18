@@ -1,64 +1,408 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <title>Insurance Voice Agent</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agentic Voice AI - Light</title>
     <style>
       body {
-        font-family: system-ui, -apple-system, Roboto, Arial;
-        background: #f7f8fb;
+        margin: 0;
+        font-family: "Segoe UI", Roboto, Helvetica, sans-serif;
+
+        background: linear-gradient(120deg, #e0f2fe 0%, #f3e8ff 100%);
+        color: #334155;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(60px);
+        z-index: 0;
+        opacity: 0.7;
+        animation: float 10s infinite ease-in-out;
+      }
+
+      .orb-1 {
+        width: 350px;
+        height: 350px;
+        background: #67e8f9;
+        top: -80px;
+        left: -80px;
+        animation-delay: 0s;
+      }
+
+      .orb-2 {
+        width: 250px;
+        height: 250px;
+        background: #f472b6;
+        bottom: 20px;
+        right: -40px;
+        animation-delay: 3s;
+      }
+
+      .orb-3 {
+        width: 180px;
+        height: 180px;
+        background: #fcd34d;
+        top: 40%;
+        right: 25%;
+        animation-delay: 5s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(0, 0);
+        }
+        50% {
+          transform: translate(20px, -40px);
+        }
+      }
+
+      .container {
+        position: relative;
+        z-index: 10;
+        width: 90%;
+        max-width: 450px;
+
+        background: rgba(255, 255, 255, 0.65);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        border-radius: 24px;
+        padding: 40px 30px;
+        text-align: center;
+
+        box-shadow: 0 20px 60px -10px rgba(100, 116, 139, 0.2);
+        animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      h1 {
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        margin-bottom: 10px;
+        background: linear-gradient(135deg, #2563eb, #7c3aed);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 2rem;
+      }
+
+      p.subtitle {
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: #64748b;
+        margin-bottom: 40px;
+      }
+
+      .mic-wrapper {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 120px;
+        margin-bottom: 30px;
+      }
+
+      .mic-btn {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        border: none;
+        color: white;
+        font-size: 36px;
+        cursor: pointer;
+        box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+        transition: all 0.3s ease;
+        z-index: 2;
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 100vh;
       }
-      .card {
-        background: white;
-        padding: 20px;
-        border-radius: 12px;
-        box-shadow: 0 6px 20px rgba(30, 30, 60, 0.08);
-        width: 420px;
-        text-align: center;
+
+      .mic-btn:hover {
+        transform: scale(1.1) translateY(-2px);
+        box-shadow: 0 15px 35px rgba(37, 99, 235, 0.4);
       }
-      .mic {
-        width: 120px;
-        height: 120px;
-        border-radius: 60px;
-        background: linear-gradient(135deg, #ff6b6b, #ffb86b);
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 24px;
-        cursor: pointer;
-        user-select: none;
+
+      .pulse-ring {
+        position: absolute;
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        border: 2px solid #3b82f6;
+        opacity: 0;
+        z-index: 1;
       }
+
+      .recording .pulse-ring {
+        animation: pulse 2s infinite;
+      }
+
+      .recording .mic-btn {
+        background: linear-gradient(135deg, #ef4444, #f43f5e);
+        box-shadow: 0 10px 25px rgba(239, 68, 68, 0.4);
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          opacity: 0.6;
+        }
+        100% {
+          transform: scale(2.3);
+          opacity: 0;
+        }
+      }
+
       .status {
-        margin-top: 12px;
-        font-size: 14px;
-        color: #333;
+        height: 20px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: #64748b;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
       }
-      .small {
-        font-size: 12px;
-        color: #666;
-        margin-top: 6px;
+
+      .chat-box {
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 16px;
+        padding: 25px;
+        min-height: 100px;
+        text-align: left;
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #1e293b;
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.03);
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .user-text {
+        color: #94a3b8;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 12px;
+        font-style: normal;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-bottom: 2px solid #f1f5f9;
+        padding-bottom: 8px;
+      }
+
+      .ai-text {
+        display: block;
+        font-weight: 500;
+      }
+
+      .cursor {
+        display: inline-block;
+        width: 3px;
+        height: 18px;
+        background: #3b82f6;
+        margin-left: 2px;
+        animation: blink 1s infinite;
+        vertical-align: middle;
+      }
+
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
       }
     </style>
   </head>
   <body>
-    <div class="card">
-      <h3>Insurance Voice Assistant</h3>
-      <div id="mic" class="mic">🎤</div>
-      <div id="status" class="status">
-        Click mic and ask your question — only voice responses.
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="container">
+      <h1>AURA AI</h1>
+      <p class="subtitle">Voice Interface • System Online</p>
+
+      <div class="mic-wrapper" id="micWrapper">
+        <div class="pulse-ring"></div>
+        <button class="mic-btn" id="micBtn">🎤</button>
       </div>
-      <div id="transcript" class="small"></div>
-      <div class="small" style="margin-top: 8px">
-        Policy sample KB loaded on server.
+
+      <div class="status" id="status">Ready</div>
+
+      <div class="chat-box">
+        <div class="user-text" id="transcript">Waiting for voice...</div>
+        <div class="ai-text" id="response">
+          <span id="responseText"></span><span class="cursor"></span>
+        </div>
       </div>
     </div>
 
-    <script src="/static/app.js"></script>
+    <script>
+      const micBtn = document.getElementById("micBtn");
+      const micWrapper = document.getElementById("micWrapper");
+      const statusEl = document.getElementById("status");
+      const transcriptEl = document.getElementById("transcript");
+      const responseTextEl = document.getElementById("responseText");
+
+      function typeWriter(text, element, speed = 30) {
+        element.textContent = "";
+        let i = 0;
+        function type() {
+          if (i < text.length) {
+            element.textContent += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+          }
+        }
+        type();
+      }
+
+      const wsProtocol = location.protocol === "https:" ? "wss" : "ws";
+      const wsUrl = wsProtocol + "://" + location.host + "/ws";
+      let ws;
+
+      function connectWebSocket() {
+        ws = new WebSocket(wsUrl);
+
+        ws.onopen = () => {
+          console.log("Connected to Brain");
+          statusEl.textContent = "SYSTEM ONLINE";
+          statusEl.style.color = "#10b981";
+        };
+
+        ws.onmessage = (ev) => {
+          const msg = JSON.parse(ev.data);
+
+          if (msg.type === "transcript") {
+            transcriptEl.textContent = `"${msg.text}"`;
+            statusEl.textContent = "PROCESSING...";
+            statusEl.style.color = "#f59e0b";
+          } else if (msg.type === "response") {
+            statusEl.textContent = "SPEAKING";
+            statusEl.style.color = "#3b82f6";
+
+            typeWriter(msg.text, responseTextEl);
+
+            speakText(msg.text);
+          } else if (msg.type === "error") {
+            statusEl.textContent = "ERROR";
+            statusEl.style.color = "#ef4444";
+            responseTextEl.textContent = msg.message;
+          }
+        };
+
+        ws.onclose = () => {
+          statusEl.textContent = "DISCONNECTED";
+          statusEl.style.color = "#94a3b8";
+          setTimeout(connectWebSocket, 3000);
+        };
+      }
+
+      let mediaRecorder;
+      let audioChunks = [];
+      let isRecording = false;
+
+      micBtn.addEventListener("click", () => {
+        if (!isRecording) {
+          startRecording();
+        } else {
+          stopRecording();
+        }
+      });
+
+      async function startRecording() {
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({
+            audio: true,
+          });
+          mediaRecorder = new MediaRecorder(stream);
+          audioChunks = [];
+
+          mediaRecorder.ondataavailable = (event) => {
+            audioChunks.push(event.data);
+          };
+
+          mediaRecorder.onstop = async () => {
+            const audioBlob = new Blob(audioChunks, { type: "audio/webm" });
+            const reader = new FileReader();
+            reader.readAsDataURL(audioBlob);
+            reader.onloadend = () => {
+              const base64String = reader.result;
+              ws.send(
+                JSON.stringify({
+                  type: "audio",
+                  data: base64String,
+                  session_id: "web_user_" + Math.floor(Math.random() * 1000),
+                })
+              );
+            };
+            statusEl.textContent = "ANALYZING...";
+          };
+
+          mediaRecorder.start();
+          isRecording = true;
+
+          micWrapper.classList.add("recording");
+          statusEl.textContent = "LISTENING...";
+          statusEl.style.color = "#ef4444";
+          transcriptEl.textContent = "...";
+          responseTextEl.textContent = "";
+        } catch (err) {
+          alert("Microphone access denied.");
+          console.error(err);
+        }
+      }
+
+      function stopRecording() {
+        if (mediaRecorder && isRecording) {
+          mediaRecorder.stop();
+          isRecording = false;
+          micWrapper.classList.remove("recording");
+        }
+      }
+
+      function speakText(text) {
+        if ("speechSynthesis" in window) {
+          window.speechSynthesis.cancel();
+          const utterance = new SpeechSynthesisUtterance(text);
+
+          const voices = window.speechSynthesis.getVoices();
+          const preferredVoice = voices.find(
+            (v) =>
+              v.name.includes("Google US English") ||
+              v.name.includes("Samantha")
+          );
+          if (preferredVoice) utterance.voice = preferredVoice;
+
+          utterance.rate = 1.1;
+          window.speechSynthesis.speak(utterance);
+
+          utterance.onend = () => {
+            statusEl.textContent = "READY";
+            statusEl.style.color = "#10b981";
+          };
+        }
+      }
+
+      connectWebSocket();
+      window.speechSynthesis.onvoiceschanged = () => {};
+    </script>
   </body>
 </html>
