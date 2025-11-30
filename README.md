@@ -1,4 +1,4 @@
-## 📋 Overview
+##  Overview
 
 This project is a fully functional **Life Insurance Support Agent** capable of answering questions about policies, claims, and eligibility. It features a **persistent conversational memory**, retrieving answers from a configurable Knowledge Base (RAG), and supports **Real-time Voice Interaction**.
 
@@ -6,18 +6,18 @@ The system is optimized for speed (3-4s latency) using asynchronous processing a
 
 ### Key Features
 
-- **🧠 LangGraph Agent:** Uses a state graph to manage conversation flow and knowledge retrieval.
-- **⚡ Low Latency:** Optimized with `asyncio`, in-memory audio processing, and targeted prompting.
-- **💾 Persistent Memory:** Remembers user context across turns using **AsyncSqliteSaver**.
-- **🗣️ Multi-Modal Interface:**
+- ** LangGraph Agent:** Uses a state graph to manage conversation flow and knowledge retrieval.
+- ** Low Latency:** Optimized with `asyncio`, in-memory audio processing, and targeted prompting.
+- ** Persistent Memory:** Remembers user context across turns using **AsyncSqliteSaver**.
+- ** Multi-Modal Interface:**
   - **Web UI:** Speak to the agent via browser (Voice-to-Voice).
   - **Voice CLI:** A "Matrix-style" terminal interface with real-time recording.
   - **Chat CLI:** Standard text-based terminal chat.
-- **📚 Configurable Knowledge Base:** Easy-to-update JSON file for insurance domain knowledge.
+- ** Configurable Knowledge Base:** Easy-to-update JSON file for insurance domain knowledge.
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 The system follows a client-server architecture:
 
@@ -30,7 +30,7 @@ The system follows a client-server architecture:
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```text
 ├── backend/
@@ -53,7 +53,7 @@ The system follows a client-server architecture:
 
 ---
 
-## 🧩 Tech Stack
+##  Tech Stack
 
 | Component         | Technology                  |
 | ----------------- | --------------------------- |
@@ -67,7 +67,7 @@ The system follows a client-server architecture:
 
 ---
 
-## 📦 Installation
+##  Installation
 
 ### **1. Clone the Repository**
 
@@ -104,7 +104,7 @@ pip install -r requirements.txt
 
 ---
 
-## 🔐 Environment Variables
+##  Environment Variables
 
 Create a `.env` file in project root:
 
@@ -121,7 +121,7 @@ DEBUG=True
 
 ---
 
-## 🚀 Usage
+##  Usage
 
 You can run the system in three different modes.
 
@@ -163,7 +163,7 @@ python -m backend.cli_chat
 
 ---
 
-## 🧠 LangGraph Agent Architecture
+##  LangGraph Agent Architecture
 
 Your agent is built using **LangGraph** with SQLite checkpointing:
 
@@ -198,7 +198,7 @@ Here’s a sample interaction with the Life Insurance Support Agent:
 
 ---
 
-## ⚡ Latency Optimization
+##  Latency Optimization
 
 To meet the \<4 second latency requirement, several optimizations were implemented:
 
@@ -209,7 +209,7 @@ To meet the \<4 second latency requirement, several optimizations were implement
 
 ---
 
-## 🧩 Customization
+##  Customization
 
 **Updating Knowledge:**
 Edit `knowledge_base.json` to add new insurance topics. The agent automatically detects keywords and retrieves the info.
@@ -219,7 +219,7 @@ Edit `SYSTEM_PROMPT` in `backend/langgraph_agent.py` to change how the agent beh
 
 ---
 
-## 🔮 Future Improvements
+##  Future Improvements
 
 - Convert the UI into a more mesmerizing, modern design
 - Add Whisper speech-to-text
@@ -230,7 +230,7 @@ Edit `SYSTEM_PROMPT` in `backend/langgraph_agent.py` to change how the agent beh
 
 ---
 
-## 📄 License
+##  License
 
 This project is licensed under the **MIT License**.
 
