@@ -4,7 +4,7 @@ This project is a fully functional **Life Insurance Support Agent** capable of a
 
 The system is optimized for speed (3-4s latency) using asynchronous processing and `gpt-4o-mini`.
 
-### Key Features
+### Key Features 
 
 -  **LangGraph Agent:** Uses a state graph to manage conversation flow and knowledge retrieval.
 -  **Low Latency:** Optimized with `asyncio`, in-memory audio processing, and targeted prompting.
