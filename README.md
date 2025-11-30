@@ -6,14 +6,14 @@ The system is optimized for speed (3-4s latency) using asynchronous processing a
 
 ### Key Features
 
--  LangGraph Agent:** Uses a state graph to manage conversation flow and knowledge retrieval.
--  Low Latency:** Optimized with `asyncio`, in-memory audio processing, and targeted prompting.
--  Persistent Memory:** Remembers user context across turns using **AsyncSqliteSaver**.
--  Multi-Modal Interface:**
+-  **LangGraph Agent:** Uses a state graph to manage conversation flow and knowledge retrieval.
+-  **Low Latency:** Optimized with `asyncio`, in-memory audio processing, and targeted prompting.
+-  **Persistent Memory:** Remembers user context across turns using **AsyncSqliteSaver**.
+-  **Multi-Modal Interface:**
   - **Web UI:** Speak to the agent via browser (Voice-to-Voice).
   - **Voice CLI:** A "Matrix-style" terminal interface with real-time recording.
   - **Chat CLI:** Standard text-based terminal chat.
--  Configurable Knowledge Base:** Easy-to-update JSON file for insurance domain knowledge.
+-  **Configurable Knowledge Base:** Easy-to-update JSON file for insurance domain knowledge.
 
 ---
 
