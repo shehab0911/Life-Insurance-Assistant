@@ -226,7 +226,7 @@ Edit `SYSTEM_PROMPT` in `backend/langgraph_agent.py` to change how the agent beh
 - Add TTS response generation
 - Expand toolset (email automation, browser tooling, RAG search)
 - Add authentication
-- Deploy on Docker / Vercel / Render
+- Vercel / Render
 
 ---
 
