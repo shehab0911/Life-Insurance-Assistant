@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  aura-ai:
+    build: .
+    container_name: aura_ai_container
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./chat_history.db:/code/chat_history.db
+    env_file:
+      - .env
+    environment:
+      - CHAT_DB_PATH=/code/chat_history.db
+    restart: unless-stopped
